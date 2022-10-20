@@ -1,12 +1,12 @@
 foreach($line in Get-Content -Path C:\hosts.txt) 
 {
     $result = Test-Connection -ComputerName $line -Quiet
-    if($result = True)
+    if($result = 1)
     {
-    Write-Output ($line + "  " + $result) | Out-File -FilePath C:\truehosts.txt -Append
+    Write-Output ($line) | Out-File -FilePath C:\truehosts.txt -Append
     }
     else
     {
-    Write-Output ($line + "  " + $result) | Out-File -FilePath C:\falsehosts.txt -Append
+    Write-Output ($line) | Out-File -FilePath C:\falsehosts.txt -Append
     }
 }
