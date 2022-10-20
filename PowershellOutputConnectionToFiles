@@ -1,7 +1,7 @@
 foreach($line in Get-Content -Path C:\hosts.txt) 
 {
     $result = Test-Connection -ComputerName $line -Quiet
-    if($result = 1)
+    if($result -eq "True")
     {
     Write-Output ($line) | Out-File -FilePath C:\truehosts.txt -Append
     }
